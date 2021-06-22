@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  status="OFF"，可以去掉，它的含义为是否记录log4j2本身的event信息，默认是OFF -->
+<configuration status="OFF">
+
+    <Properties>
+        <property name="log_pattern">%d{yyyy-MM-dd HH:mm:ss,SSS} %level [%t] %logger{36}(%F:%L) - %m%n</property>
+
+        <property name="file_info">logs/$${date:yyyy-MM-dd}/app-info.log</property>
+        <property name="rolling_file_info_name">logs/$${date:yyyy-MM-dd}/app-info-%d{yyyy-MM-dd}-%i.log</property>
+
+        <property name="file_error">logs/$${date:yyyy-MM-dd}/app-error.log</property>
+        <property name="rolling_file_error_name">logs/$${date:yyyy-MM-dd}/app-error-%d{yyyy-MM-dd}-%i.log</property>
+
+        <property name="every_file_size">100M</property><!-- 日志切割的最小单位 -->
+        <property name="output_log_level">INFO</property><!-- 日志输出级别 -->
+    </Properties>
+
+    <appenders>
+<!--        <Console name="console" target="SYSTEM_OUT" follow="true">-->
+<!--            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--            <PatternLayout pattern="${log_pattern}"/>-->
+<!--        </Console>-->
+
+                <RollingFile name="RollingInfoFile" fileName="${file_info}"
+                             filePattern="${rolling_file_info_name}">
+                    <PatternLayout pattern="${log_pattern}"/>
+                    <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="ACCEPT"/>
+                    <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+                </RollingFile>
+
+                <RollingFile name="RollingErrorFile" fileName="${file_error}"
+                             filePattern="${rolling_file_error_name}">
+                    <PatternLayout pattern="${log_pattern}"/>
+                    <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+                    <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+                </RollingFile>
+    </appenders>
+
+    <loggers>
+<!--        <Root level="info" includeLocation="true">-->
+<!--            <AppenderRef ref="console"/>-->
+<!--        </Root>-->
+                <AsyncLogger name="root" level="info" additivity="false" includeLocation="true">
+                    <appender-ref ref="RollingInfoFile"/>
+                    <appender-ref ref="RollingErrorFile"/>
+                </AsyncLogger>
+    </loggers>
+</configuration>
