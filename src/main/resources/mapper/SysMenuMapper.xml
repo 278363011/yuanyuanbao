@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanbaobao.mini.mapper.SysMenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yuanbaobao.mini.model.SysMenu">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="perm_flag" property="permFlag"/>
+        <result column="url" property="url"/>
+        <result column="is_frame" property="isFrame"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="level" property="level"/>
+        <result column="icon" property="icon"/>
+        <result column="sort" property="sort"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <select id="findMenuPermissionsByRoleId" resultType="String">
+        SELECT sm.`name` FROM  sys_role AS sr LEFT JOIN sys_role_menu AS srm
+        ON sr.`id` = srm.`role_id`
+        LEFT JOIN sys_menu AS sm
+        ON sm.`id` = srm.`menu_id`
+        WHERE sr.`id` = #{roleId}
+    </select>
+
+</mapper>

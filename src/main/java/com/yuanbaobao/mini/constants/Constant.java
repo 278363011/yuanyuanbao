@@ -1,4 +1,4 @@
-package com.codebaobao.constants;
+package com.yuanbaobao.mini.constants;
 
 public interface Constant {
     String SELECT_SUCCESS = "查询成功";
@@ -16,5 +16,15 @@ public interface Constant {
     String INSERT_SUCCESS = "插入成功";
     String INSERT_ERROR = "插入失败";
     String INSERT_EXCEPTION = "插入异常";
+
+    // 微信code认证接口服务器地址
+    String WX_SERVER_CODE_URL = "https://api.weixin.qq.com/sns/jscode2session";
+
+    // restTemplate 最大读取时间
+    int REST_READ_OUT = 1000 * 10;
+
+    // restTemplate 最大链接时间
+    int REST_CONNECT_OUT = 1000 * 10;
+
 
 }

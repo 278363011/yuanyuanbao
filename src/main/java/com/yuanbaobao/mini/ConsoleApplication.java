@@ -1,4 +1,4 @@
-package com.codebaobao;
+package com.yuanbaobao.mini;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,15 +18,15 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableTransactionManagement
 @EnableScheduling
 @ServletComponentScan
-@MapperScan("com.codebaobao.mapper")
-@SpringBootApplication(scanBasePackages = {"com.codebaobao"}, exclude = {})
+@MapperScan("com.yuanbaobao.mini.mapper")
+@SpringBootApplication(scanBasePackages = {"com.yuanbaobao.mini"}, exclude = {})
 public class ConsoleApplication {
 
     public static void main(final String[] args) {
         final SpringApplication app = new SpringApplication(ConsoleApplication.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
-        log.info("================================心里预约系统启动完成================================");
+        log.info("================================猿源宝启动完成================================");
     }
 
 }

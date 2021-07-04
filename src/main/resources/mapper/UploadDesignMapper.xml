@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanbaobao.mini.mapper.UploadDesignMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yuanbaobao.mini.model.UploadDesign">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="design_name" property="designName" />
+        <result column="design_language" property="designLanguage" />
+        <result column="upload_url" property="uploadUrl" />
+        <result column="concact_method" property="concactMethod" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_del" property="isDel" />
+    </resultMap>
+
+</mapper>

@@ -19,7 +19,7 @@ spring:
     host: localhost
     port: 6379
     password:
-    timeout: 36000ms
+    timeout: 2000ms
     database: 0
     lettuce:
       pool:
@@ -34,24 +34,14 @@ spring:
     encoding: UTF-8
     ontent-type: text/html
     cache: false
-  devtools:
-    restart:
-      enabled: true
-      additional-paths: src/main/java
-  #      additional-exclude: WEB-INF/**
-  #  redis:
-  #    database: 0
-  #    host: 172.21.91.114
-  #    port: 6379
-  #    timeout: 2000s
-  #    password:
+    additional-exclude: WEB-INF/**
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
     druid:
-      url: jdbc:mysql://localhost:3306/psychologicalAppointment?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      url: jdbc:mysql://localhost:3306/yuanyuanbao?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: root
-      password: 123456
+      password: 12345678
       initial-size: 10
       max-active: 100
       min-idle: 10
@@ -80,7 +70,7 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
-  typeAliasesPackage: com.codebaobao.model
+  typeAliasesPackage: com.yuanbaobao.mini.model
   global-config:
     id-type: 0
     field-strategy: 1
@@ -95,31 +85,18 @@ mybatis-plus:
     jdbc-type-for-null: 'null'
     call-setters-on-nulls: true
 
+
+app:
+  id: wxc260f5909550707a
+  secret: 4e8ab17fa49df0055b22a18ccbd50fec
+
 jwt:
-  secret: csdlelectronic
-  iss: 123456789
-  header: Authorization
-  expiration: 36000000
-  expiration_remember: 604800
+  secret: VGiXYTJDQl0OjjKmvTH3ycbkyVSg9Hb3RyPy40DpN98aDGX3
 
-virtual:
-  images:
-    path: C:\upload\
+shiro:
+  loginUrl: /login
+  successUrl: /
 
-# 腾讯云短信服务配置
-sms-config:
-  # 腾讯云账户密钥对 secretId 和 secretKey
-  secretId: AKIDznTCgvG3iFdEevy5wd7OWZhaDdvJiZYJ
-  secretKey: kJcoqfHo59LI3azFI7qoY7RUO7fytiOy
-  # 短信应用appId和appKey
-  appId: 1400510796
-  appKey: ef9e93c9b8ad65d435bbc37dc56ba4b7
-  # 签名
-  smsSign: 邵院心海
-  # 过期时间
-  expireTime: 10  # 10min
-  # redis存储前缀
-  phonePrefix: xlzx_sms
-  # 模板id
-  templateIds:
-    code: 933275
+
+
+

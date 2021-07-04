@@ -1,4 +1,4 @@
-package com.codebaobao.utils;
+package com.yuanbaobao.mini.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package com.codebaobao.configuration;
+package com.yuanbaobao.mini.configuration;
 
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;

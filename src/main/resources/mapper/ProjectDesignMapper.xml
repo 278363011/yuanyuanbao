@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanbaobao.mini.mapper.ProjectDesignMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yuanbaobao.mini.model.ProjectDesign">
+        <id column="id" property="id" />
+        <result column="project_id" property="projectId" />
+        <result column="title_name" property="titleName" />
+        <result column="title_desc" property="titleDesc" />
+        <result column="title_content" property="titleContent" />
+        <result column="integration" property="integration" />
+        <result column="user_view_num" property="userViewNum" />
+        <result column="share_num" property="shareNum" />
+        <result column="exchange_num" property="exchangeNum" />
+        <result column="download_url" property="downloadUrl" />
+        <result column="current_status" property="currentStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_del" property="isDel" />
+        <result column="lock_version" property="lockVersion" />
+    </resultMap>
+
+</mapper>

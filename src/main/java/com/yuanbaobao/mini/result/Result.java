@@ -1,4 +1,4 @@
-package com.codebaobao.result;
+package com.yuanbaobao.mini.result;
 
 public class Result<T> {
     private int code;
