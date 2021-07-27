@@ -1,0 +1,102 @@
+server:
+  tomcat:
+    accept-count: 1000
+    max-connections: 10000
+    uri-encoding: UTF-8
+    threads:
+      max: 800
+      min-spare: 100
+    connection-timeout: 5000ms
+  port: 10011
+#  servlet:
+#    context-path: /common
+
+logging:
+  config: classpath:log4j2.xml
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: 2000ms
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 3000ms
+        max-idle: 8
+        min-idle: 0
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    ontent-type: text/html
+    cache: false
+    additional-exclude: WEB-INF/**
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    druid:
+      url: jdbc:mysql://localhost:3306/yuanyuanbao?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: 12345678
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      #validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        #login-username: admin
+        #login-password: admin
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.yuanbaobao.mini.model
+  global-config:
+    id-type: 0
+    field-strategy: 1
+    db-config:
+      logic-delete-field: delFlag  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    jdbc-type-for-null: 'null'
+    call-setters-on-nulls: true
+
+
+app:
+  id: wxc260f5909550707a
+  secret: 4e8ab17fa49df0055b22a18ccbd50fec
+
+jwt:
+  secret: VGiXYTJDQl0OjjKmvTH3ycbkyVSg9Hb3RyPy40DpN98aDGX3
+
+shiro:
+  loginUrl: /login
+  successUrl: /
+
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanbaobao.mini.mapper.SysApiMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yuanbaobao.mini.model.SysApi">
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="url" property="url"/>
+        <result column="request_type" property="requestType"/>
+        <result column="perm_flag" property="permFlag"/>
+        <result column="desc" property="desc"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+
+    <select id="findApiPermissionsByRoleId" resultType="String">
+        SELECT sa.`url` FROM  sys_role AS sr LEFT JOIN sys_role_api AS sra
+        ON sr.`id` = sra.`role_id`
+        LEFT JOIN sys_api AS sa
+        ON sa.`id` = sra.`api_id`
+        WHERE sr.`id` = #{roleId}
+    </select>
+
+</mapper>

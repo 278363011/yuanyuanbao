@@ -1,0 +1,40 @@
+{
+  "groups": [
+    {
+      "name": "spring.redis",
+      "type": "com.yuanbaobao.mini.shiro.config.ShiroConfig",
+      "sourceType": "com.yuanbaobao.mini.shiro.config.ShiroConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.redis.database",
+      "type": "java.lang.Integer",
+      "sourceType": "com.yuanbaobao.mini.shiro.config.ShiroConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.redis.host",
+      "type": "java.lang.String",
+      "sourceType": "com.yuanbaobao.mini.shiro.config.ShiroConfig",
+      "defaultValue": "localhost"
+    },
+    {
+      "name": "spring.redis.password",
+      "type": "java.lang.String",
+      "sourceType": "com.yuanbaobao.mini.shiro.config.ShiroConfig"
+    },
+    {
+      "name": "spring.redis.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.yuanbaobao.mini.shiro.config.ShiroConfig",
+      "defaultValue": 6379
+    },
+    {
+      "name": "spring.redis.timeout",
+      "type": "java.time.Duration",
+      "sourceType": "com.yuanbaobao.mini.shiro.config.ShiroConfig"
+    }
+  ],
+  "hints": []
+}

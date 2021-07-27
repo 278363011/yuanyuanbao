@@ -61,7 +61,7 @@ public class MyGenerator {
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
 //        strategy.setTablePrefix(new String[]{"test_"});// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略 此处可以更换为underline_to_camel 下滑线转驼峰
-        strategy.setInclude(new String[]{"sys_operation_log", "sys_login_log"}); // 需要生成的表
+        strategy.setInclude(new String[]{"design_category_middle"}); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类
         //strategy.setSuperEntityClass("com.middleware.platform.docserver.model.BaseDomain");
